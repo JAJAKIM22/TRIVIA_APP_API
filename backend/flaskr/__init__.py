@@ -15,7 +15,7 @@ def create_app(test_config=None):
     setup_db(app)
 
     """
-    @TODO: Set up CORS. Allow '*' for origins. Delete the sample route after completing the TODOs
+    @TODO: Set up CORS. Allow '*' for origins. DONE
     """
     cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
     """
@@ -267,6 +267,15 @@ def create_app(test_config=None):
             jsonify({"success": False, "error": 400, "message": "bad request"}), 
             400
         )
+    @app.errorhandler(500)
+    def server_error(error):
+        return(
+            jsonify({"success": False, "error": 500, "message": "server_error"}), 
+            500
+        )
+
+    return app
+
 
     return app
 
