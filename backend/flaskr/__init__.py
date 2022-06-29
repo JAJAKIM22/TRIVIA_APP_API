@@ -4,7 +4,7 @@ from flask import Flask, request, abort, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS, cross_origin
 import random
-from settings import DB_NAME, DB_USER, DB_PASSWORD
+
 
 from models import setup_db, Question, Category
 
